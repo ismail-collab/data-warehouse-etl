@@ -1,0 +1,2297 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/1/2024 2:43:39 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-SOAPTI2FUKM"
+  DTS:CreatorName="WIN-SOAPTI2FUKM\Administrator"
+  DTS:DTSID="{90E17E66-B84A-4A8E-97A1-1170F13D9C55}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ODS_Reviews"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{2FE817E7-EC67-4059-A74C-ECE3AB75C321}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ADM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{68A52A3A-30EC-4295-986B-839D14D906E8}"
+      DTS:ObjectName="localhost.Project_ADM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ADM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{68A52A3A-30EC-4295-986B-839D14D906E8}localhost.Project_ADM;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4ED4F0BC-8B1F-4F34-8857-2FDEF7811655}"
+      DTS:ObjectName="localhost.Project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{4ED4F0BC-8B1F-4F34-8857-2FDEF7811655}localhost.Project_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{571822CB-73A1-4461-A282-70D797078ACF}"
+      DTS:ObjectName="localhost.Project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{571822CB-73A1-4461-A282-70D797078ACF}localhost.Project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - ODS Reviews"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4B22C31A-14E6-4C4F-B58E-FA262775F11B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - ODS Reviews"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - ODS Reviews\All - Rejects"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="All - Rejects"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[review_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[review_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[review_score]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_score"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_score]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[review_score]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[Reject_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Reject_Date"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[Reject_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[Reject_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[RejectPackTask]"
+                      cachedDataType="wstr"
+                      cachedLength="203"
+                      cachedName="RejectPackTask"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectPackTask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectPackTask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1].Columns[RejectDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="365"
+                      cachedName="RejectDescription"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3].Columns[review_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[review_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3].Columns[review_score]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_score"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_score]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[review_score]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3].Columns[Reject_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Reject_Date"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[Reject_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[Reject_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3].Columns[RejectPackTask]"
+                      cachedDataType="wstr"
+                      cachedLength="203"
+                      cachedName="RejectPackTask"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectPackTask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectPackTask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3].Columns[RejectDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="365"
+                      cachedName="RejectDescription"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[review_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[review_id]"
+                      name="review_id" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[review_score]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[review_score]"
+                      name="review_score" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[Reject_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[Reject_Date]"
+                      name="Reject_Date" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectPackTask]"
+                      dataType="wstr"
+                      length="203"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectPackTask]"
+                      name="RejectPackTask" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectColumn]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectColumn]"
+                      name="RejectColumn" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectDescription]"
+                      dataType="wstr"
+                      length="365"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectDescription]"
+                      name="RejectDescription" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\CSPL - IDs"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="CSPL - IDs"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\CSPL - IDs.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\CSPL - IDs.Inputs[Conditional Split Input].Columns[review_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[isID]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="isID"
+                  synchronousInputId="Package\DFT - ODS Reviews\CSPL - IDs.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[LEN](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]}) == 32 &amp;&amp; ([FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"0",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"1",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"2",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"3",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"4",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"5",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"6",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"7",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"8",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"9",1) &gt; 0)</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LEN(review_id) == 32 &amp;&amp; (FINDSTRING(review_id,"0",1) &gt; 0 || FINDSTRING(review_id,"1",1) &gt; 0 || FINDSTRING(review_id,"2",1) &gt; 0 || FINDSTRING(review_id,"3",1) &gt; 0 || FINDSTRING(review_id,"4",1) &gt; 0 || FINDSTRING(review_id,"5",1) &gt; 0 || FINDSTRING(review_id,"6",1) &gt; 0 || FINDSTRING(review_id,"7",1) &gt; 0 || FINDSTRING(review_id,"8",1) &gt; 0 || FINDSTRING(review_id,"9",1) &gt; 0)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[NotID]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="NotID"
+                  synchronousInputId="Package\DFT - ODS Reviews\CSPL - IDs.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">!([LEN](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]}) == 32 &amp;&amp; ([FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"0",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"1",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"2",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"3",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"4",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"5",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"6",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"7",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"8",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"9",1) &gt; 0))</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!(LEN(review_id) == 32 &amp;&amp; (FINDSTRING(review_id,"0",1) &gt; 0 || FINDSTRING(review_id,"1",1) &gt; 0 || FINDSTRING(review_id,"2",1) &gt; 0 || FINDSTRING(review_id,"3",1) &gt; 0 || FINDSTRING(review_id,"4",1) &gt; 0 || FINDSTRING(review_id,"5",1) &gt; 0 || FINDSTRING(review_id,"6",1) &gt; 0 || FINDSTRING(review_id,"7",1) &gt; 0 || FINDSTRING(review_id,"8",1) &gt; 0 || FINDSTRING(review_id,"9",1) &gt; 0))</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\CSPL - IDs.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\CSPL - IDs.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\DCNV - Column resize"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCNV - Column resize"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\DCNV - Column resize.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - Column resize.Inputs[Data Conversion Input].Columns[review_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - Column resize.Inputs[Data Conversion Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[order_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DCNV - Column resize.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Output].Columns[review_id_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Output].Columns[review_id_R]"
+                      name="review_id_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Output].Columns[order_id_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Output].Columns[order_id_R]"
+                      name="order_id_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[order_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DCNV - Column resize.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\DCNV - review score to INT"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCNV - review score to INT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\DCNV - review score to INT.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - review score to INT.Inputs[Data Conversion Input].Columns[review_score]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_score"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_score]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DCNV - review score to INT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Output].Columns[Score]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Output].Columns[Score]"
+                      name="Score"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_score]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DCNV - review score to INT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\DER - IDs"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - IDs"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\DER - IDs.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs.Inputs[Derived Column Input].Columns[review_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DER - IDs.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Output].Columns[isIDcheck]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Output].Columns[isIDcheck]"
+                      name="isIDcheck"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEN](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]}) == 32 &amp;&amp; [ISNULL]([FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"0",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"1",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"2",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"3",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"4",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"5",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"6",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"7",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"8",1) &gt; 0 || [FINDSTRING](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"9",1) &gt; 0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(review_id) == 32 &amp;&amp; ISNULL(FINDSTRING(review_id,"0",1) &gt; 0 || FINDSTRING(review_id,"1",1) &gt; 0 || FINDSTRING(review_id,"2",1) &gt; 0 || FINDSTRING(review_id,"3",1) &gt; 0 || FINDSTRING(review_id,"4",1) &gt; 0 || FINDSTRING(review_id,"5",1) &gt; 0 || FINDSTRING(review_id,"6",1) &gt; 0 || FINDSTRING(review_id,"7",1) &gt; 0 || FINDSTRING(review_id,"8",1) &gt; 0 || FINDSTRING(review_id,"9",1) &gt; 0)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DER - IDs.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\DER - IDs rejects"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - IDs rejects"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\DER - IDs rejects.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs rejects.Inputs[Derived Column Input].Columns[review_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_id"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DER - IDs rejects.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[Reject_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[Reject_Date]"
+                      name="Reject_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectPackTask]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="203"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectPackTask]"
+                      name="RejectPackTask"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + (DT_WSTR,100)@[System::TaskName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + (DT_WSTR,100)@[System::TaskName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectColumn]"
+                      name="RejectColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"review_id"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"review_id"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="365"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output].Columns[RejectDescription]"
+                      name="RejectDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)"Review ID" + #{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]} + " not valid"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)"Review ID" + review_id + " not valid"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DER - IDs rejects.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\DER - Replace quotes"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - Replace quotes"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\DER - Replace quotes.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\DER - Replace quotes.Inputs[Derived Column Input].Columns[review_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_id"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]},"\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(review_id,"\"","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\DER - Replace quotes.Inputs[Derived Column Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[order_id]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[order_id]},"\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(order_id,"\"","")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\DER - Replace quotes.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DER - Replace quotes.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\DER - Replace quotes.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DER - Replace quotes.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - Replace quotes.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DER - Replace quotes.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - Replace quotes.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DER - Replace quotes.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\DER - reviews rejects"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - reviews rejects"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\DER - reviews rejects.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\DER - reviews rejects.Inputs[Derived Column Input].Columns[review_score]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="review_score"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_score]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DER - reviews rejects.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[Reject_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[Reject_Date]"
+                      name="Reject_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectPackTask]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="203"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectPackTask]"
+                      name="RejectPackTask"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + (DT_WSTR,100)@[System::TaskName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + (DT_WSTR,100)@[System::TaskName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectColumn]"
+                      name="RejectColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"review_score"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"review_score"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="365"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output].Columns[RejectDescription]"
+                      name="RejectDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)"Review score" + #{Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_score]} + " not valid"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)"Review score" + review_score + " not valid"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\DER - reviews rejects.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - ADM Rejects"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Regets]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ADM]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ADM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].Columns[Reject_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Reject_Date"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].ExternalColumns[Regets_Date]"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[Reject_Date]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].Columns[RejectPackTask]"
+                      cachedDataType="wstr"
+                      cachedLength="203"
+                      cachedName="RejectPackTask"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].ExternalColumns[RegetsPackadgeAndTask]"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectPackTask]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RejectColumn"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].ExternalColumns[RegetColumn]"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectColumn]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].Columns[RejectDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="365"
+                      cachedName="RejectDescription"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].ExternalColumns[RegetDescription]"
+                      lineageId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1].Columns[RejectDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].ExternalColumns[Regets_Date]"
+                      dataType="dbTimeStamp"
+                      name="Regets_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].ExternalColumns[RegetsPackadgeAndTask]"
+                      dataType="wstr"
+                      length="210"
+                      name="RegetsPackadgeAndTask" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].ExternalColumns[RegetColumn]"
+                      dataType="wstr"
+                      length="50"
+                      name="RegetColumn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input].ExternalColumns[RegetDescription]"
+                      dataType="wstr"
+                      length="374"
+                      name="RegetDescription" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - ODS Reviews"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Reviews]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].Columns[Score]"
+                      cachedDataType="i8"
+                      cachedName="Score"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].ExternalColumns[Score]"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Output].Columns[Score]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].Columns[review_id_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="review_id_R"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].ExternalColumns[review_id]"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Output].Columns[review_id_R]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].Columns[order_id_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="order_id_R"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Output].Columns[order_id_R]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].ExternalColumns[Score]"
+                      dataType="i8"
+                      name="Score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].ExternalColumns[review_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="review_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="order_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC - STA Reviews"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Reviews]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_STA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_id&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_id]"
+                      name="review_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;order_id&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_score]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_score&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_score]"
+                      name="review_score"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_comment_title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_comment_title&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_comment_title]"
+                      name="review_comment_title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_comment_message]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_comment_message&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_comment_message]"
+                      name="review_comment_message"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_creation_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_creation_date&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_creation_date]"
+                      name="review_creation_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_answer_timestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_answer_timestamp&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].Columns[review_answer_timestamp]"
+                      name="review_answer_timestamp"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;review_id&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;order_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;order_id&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_score&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;review_score&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_comment_title&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;review_comment_title&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_comment_message&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;review_comment_message&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_creation_date&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;review_creation_date&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output].ExternalColumns[&quot;review_answer_timestamp&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;review_answer_timestamp&quot;" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_id&quot;]"
+                      name="&quot;review_id&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;order_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;order_id&quot;]"
+                      name="&quot;order_id&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_score&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_score&quot;]"
+                      name="&quot;review_score&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_comment_title&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_comment_title&quot;]"
+                      name="&quot;review_comment_title&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_comment_message&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_comment_message&quot;]"
+                      name="&quot;review_comment_message&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_creation_date&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_creation_date&quot;]"
+                      name="&quot;review_creation_date&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_answer_timestamp&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[&quot;review_answer_timestamp&quot;]"
+                      name="&quot;review_answer_timestamp&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[Data Conversion Error Output]"
+              endId="Package\DFT - ODS Reviews\DER - reviews rejects.Inputs[Derived Column Input]"
+              name="Data Conversion Error Output"
+              startId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[Data Conversion Output]"
+              endId="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - ODS Reviews\DCNV - Column resize.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[Data Conversion Output1]"
+              endId="Package\DFT - ODS Reviews\DER - IDs.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - ODS Reviews\DCNV - review score to INT.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[Derived Column Output]"
+              endId="Package\DFT - ODS Reviews\CSPL - IDs.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - ODS Reviews\DER - IDs.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[Derived Column Output1]"
+              endId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT - ODS Reviews\DER - reviews rejects.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[Derived Column Output2]"
+              endId="Package\DFT - ODS Reviews\DCNV - review score to INT.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - ODS Reviews\DER - Replace quotes.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[Derived Column Output3]"
+              endId="Package\DFT - ODS Reviews\All - Rejects.Inputs[Union All Input 3]"
+              name="Derived Column Output"
+              startId="Package\DFT - ODS Reviews\DER - IDs rejects.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[isID]"
+              endId="Package\DFT - ODS Reviews\DCNV - Column resize.Inputs[Data Conversion Input]"
+              name="isID"
+              startId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[isID]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[NotID]"
+              endId="Package\DFT - ODS Reviews\DER - IDs rejects.Inputs[Derived Column Input]"
+              name="NotID"
+              startId="Package\DFT - ODS Reviews\CSPL - IDs.Outputs[NotID]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[OLE DB Source Output]"
+              endId="Package\DFT - ODS Reviews\DER - Replace quotes.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT - ODS Reviews.Paths[Union All Output 1]"
+              endId="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\DFT - ODS Reviews\All - Rejects.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate ODS Reviews"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{994E0A1F-CCFF-4637-AEDC-FCD5CCE86ABB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate ODS Reviews"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4ED4F0BC-8B1F-4F34-8857-2FDEF7811655}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Reviews" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{ADDCBE6B-E779-452B-B3DA-EB3BA5D23A73}"
+      DTS:From="Package\SQL - Truncate ODS Reviews"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - ODS Reviews" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\DFT - ODS Reviews"
+          TopLeft="244.374989075586,139.578945835872" />
+        <NodeLayout
+          Size="221.333333333334,42.6666666666667"
+          Id="Package\SQL - Truncate ODS Reviews"
+          TopLeft="221.249990109355,49.2631573538371" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="332.145822925804,91.9298240205038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.6491218153679"
+              Start="0,0"
+              End="0,40.1491218153679">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.1491218153679" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - ODS Reviews">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\DER - reviews rejects"
+          TopLeft="343.179478740081,212.512815967584" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\DER - Replace quotes"
+          TopLeft="240.582745200965,135.006990771611" />
+        <NodeLayout
+          Size="133.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\CSPL - IDs"
+          TopLeft="205.333329002063,402.444440093306" />
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\DCNV - Column resize"
+          TopLeft="183.574398532377,496.605259643987" />
+        <NodeLayout
+          Size="200,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\OLE_DST - ADM Rejects"
+          TopLeft="529.999985992909,376.444440073437" />
+        <NodeLayout
+          Size="210.666666666667,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\DCNV - review score to INT"
+          TopLeft="60,227.111106978523" />
+        <NodeLayout
+          Size="202.666666666667,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews"
+          TopLeft="258.666660745939,60" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\DER - IDs rejects"
+          TopLeft="314.666659077009,312.88888586892" />
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews"
+          TopLeft="176.479163575607,594.450285276062" />
+        <NodeLayout
+          Size="128,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\DER - IDs"
+          TopLeft="79.3333327571552,310.444442835119" />
+        <NodeLayout
+          Size="136,42.6666666666667"
+          Id="Package\DFT - ODS Reviews\All - Rejects"
+          TopLeft="576.666651268801,244.444443411297" />
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[Derived Column Output2]"
+          TopLeft="333.249411867632,177.673657438277">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-167.916078534299,49.4374495402454"
+              Start="0,0"
+              End="-167.916078534299,41.9374495402454">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.7187247701227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.7187247701227"
+                    Point2="0,24.7187247701227"
+                    Point3="-4,24.7187247701227" />
+                  <mssgle:LineSegment
+                    End="-163.916078534299,24.7187247701227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-163.916078534299,24.7187247701227"
+                    Point2="-167.916078534299,24.7187247701227"
+                    Point3="-167.916078534299,28.7187247701227" />
+                  <mssgle:LineSegment
+                    End="-167.916078534299,41.9374495402454" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[Derived Column Output1]"
+          TopLeft="524.512812073415,233.846149300918">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.1538391953861,31.9316274437129"
+              Start="0,0"
+              End="44.6538391953861,31.9316274437129">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.0769195976931,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.0769195976931,0"
+                    Point2="26.0769195976931,0"
+                    Point3="26.0769195976931,4" />
+                  <mssgle:LineSegment
+                    End="26.0769195976931,27.9316274437129" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.0769195976931,27.9316274437129"
+                    Point2="26.0769195976931,31.9316274437129"
+                    Point3="30.0769195976931,31.9316274437129" />
+                  <mssgle:LineSegment
+                    End="44.6538391953861,31.9316274437129" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[Derived Column Output]"
+          TopLeft="143.333332757155,353.111109501786">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.666662911574,49.3333305915198"
+              Start="0,0"
+              End="128.666662911574,41.8333305915198">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6666652957599" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6666652957599"
+                    Point2="0,24.6666652957599"
+                    Point3="4,24.6666652957599" />
+                  <mssgle:LineSegment
+                    End="124.666662911574,24.6666652957599" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.666662911574,24.6666652957599"
+                    Point2="128.666662911574,24.6666652957599"
+                    Point3="128.666662911574,28.6666652957599" />
+                  <mssgle:LineSegment
+                    End="128.666662911574,41.8333305915198" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[Data Conversion Output1]"
+          TopLeft="165.333333333333,269.777773645189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.0000005761782,40.66666918993"
+              Start="0,0"
+              End="-22.0000005761782,33.16666918993">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.333334594965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.333334594965"
+                    Point2="0,20.333334594965"
+                    Point3="-4,20.333334594965" />
+                  <mssgle:LineSegment
+                    End="-18.0000005761782,20.333334594965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.0000005761782,20.333334594965"
+                    Point2="-22.0000005761782,20.333334594965"
+                    Point3="-22.0000005761782,24.333334594965" />
+                  <mssgle:LineSegment
+                    End="-22.0000005761782,33.16666918993" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[Data Conversion Output]"
+          TopLeft="277.693447720659,539.271926310654">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.1783589654083"
+              Start="0,0"
+              End="0,47.6783589654083">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.6783589654083" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[Data Conversion Error Output]"
+          TopLeft="270.666666666667,248.444440311856">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.5128120734145,-14.5982910109381"
+              Start="0,0"
+              End="65.0128120734145,-14.5982910109381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32.2564060367072,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.2564060367072,0"
+                    Point2="36.2564060367072,0"
+                    Point3="36.2564060367072,-4" />
+                  <mssgle:LineSegment
+                    End="36.2564060367072,-10.5982910109381" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.2564060367072,-10.5982910109381"
+                    Point2="36.2564060367072,-14.5982910109381"
+                    Point3="40.2564060367072,-14.5982910109381" />
+                  <mssgle:LineSegment
+                    End="65.0128120734145,-14.5982910109381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.8299806820428,1,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[Union All Output 1]"
+          TopLeft="644.666651268801,287.111110077964">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.6666652758919,89.3333299954734"
+              Start="0,0"
+              End="-14.6666652758919,81.8333299954734">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.6666649977367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.6666649977367"
+                    Point2="0,44.6666649977367"
+                    Point3="-4,44.6666649977367" />
+                  <mssgle:LineSegment
+                    End="-10.6666652758919,44.6666649977367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.6666652758919,44.6666649977367"
+                    Point2="-14.6666652758919,44.6666649977367"
+                    Point3="-14.6666652758919,48.6666649977367" />
+                  <mssgle:LineSegment
+                    End="-14.6666652758919,81.8333299954734" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[OLE DB Source Output]"
+          TopLeft="359.999994079272,102.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-26.75058221164,32.3403241049438"
+              Start="0,0"
+              End="-26.75058221164,24.8403241049438">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.1701620524719" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.1701620524719"
+                    Point2="0,16.1701620524719"
+                    Point3="-4,16.1701620524719" />
+                  <mssgle:LineSegment
+                    End="-22.75058221164,16.1701620524719" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.75058221164,16.1701620524719"
+                    Point2="-26.75058221164,16.1701620524719"
+                    Point3="-26.75058221164,20.1701620524719" />
+                  <mssgle:LineSegment
+                    End="-26.75058221164,24.8403241049438" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[NotID]"
+          TopLeft="292.888884557618,402.444440093306">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.444441186057,-46.8888875577185"
+              Start="0,0"
+              End="102.444441186057,-39.3888875577185">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-15.0891518515613" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-15.0891518515613"
+                    Point2="0,-19.0891518515613"
+                    Point3="4,-19.0891518515613" />
+                  <mssgle:LineSegment
+                    End="98.4444411860572,-19.0891518515613" />
+                  <mssgle:CubicBezierSegment
+                    Point1="98.4444411860572,-19.0891518515613"
+                    Point2="102.444441186057,-19.0891518515613"
+                    Point3="102.444441186057,-23.0891518515613" />
+                  <mssgle:LineSegment
+                    End="102.444441186057,-39.3888875577185" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="37.7710096555286,-14.0891518515613,26.902421875,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[isID]"
+          TopLeft="274.45386376722,445.111106759973">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.4941528840139"
+              Start="0,0"
+              End="0,43.9941528840139">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.9941528840139" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-9.1648046875,17.271490504507,18.329609375,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Reviews.Paths[Derived Column Output3]"
+          TopLeft="395.333325743675,312.88888586892">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="227.999992191792,-25.7777757909564"
+              Start="0,0"
+              End="227.999992191792,-18.2777757909564">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-11.2868205271951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-11.2868205271951"
+                    Point2="0,-15.2868205271951"
+                    Point3="4,-15.2868205271951" />
+                  <mssgle:LineSegment
+                    End="223.999992191792,-15.2868205271951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="223.999992191792,-15.2868205271951"
+                    Point2="227.999992191792,-15.2868205271951"
+                    Point3="227.999992191792,-19.2868205271951" />
+                  <mssgle:LineSegment
+                    End="227.999992191792,-18.2777757909564" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Reviews\OLE_SRC - STA Reviews">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Reviews\OLE_DST - ODS Reviews">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

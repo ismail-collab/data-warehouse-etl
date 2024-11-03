@@ -1,0 +1,1231 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/29/2024 1:07:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NEILIQ2"
+  DTS:CreatorName="DESKTOP-NEILIQ2\Dell"
+  DTS:DTSID="{3C0F5B60-351D-45FA-8E5F-043D2D3AAD7D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{1EE278FB-6EF1-4A33-8D25-2CE47FE7D018}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.GP_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B15927A1-2B9E-4C91-9779-B8992E69ADA8}"
+      DTS:ObjectName="localhost.GP_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=GP_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B15927A1-2B9E-4C91-9779-B8992E69ADA8}localhost.GP_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.GP_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7C7BEA08-9E0C-494A-B17B-2E84905231D3}"
+      DTS:ObjectName="localhost.GP_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=GP_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{7C7BEA08-9E0C-494A-B17B-2E84905231D3}localhost.GP_STA 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B6CAA92B-6400-433E-B082-B6F37A9837A1}"
+      DTS:ObjectName="localhost.Project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B6CAA92B-6400-433E-B082-B6F37A9837A1}localhost.Project_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CBFDD2E4-7B49-4AE6-B1C3-7C776B92175F}"
+      DTS:ObjectName="localhost.Project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{CBFDD2E4-7B49-4AE6-B1C3-7C776B92175F}localhost.Project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_STA 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{234F8CE8-BF7A-41A6-9B9C-5B267DE93C8B}"
+      DTS:ObjectName="localhost.Project_STA 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{234F8CE8-BF7A-41A6-9B9C-5B267DE93C8B}localhost.Project_STA 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT-ODS Sellers"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{898A8E5A-D488-4B53-982B-73D7CBC4AEFA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT-ODS Sellers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT-ODS Sellers\DCNV - Column resize"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="DCNV - Column resize"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Sellers\DCNV - Column resize.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Inputs[Entrée de conversion de données].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="seller_id"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_id]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Inputs[Entrée de conversion de données].Columns[seller_zip_code_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="seller_zip_code_prefix"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_zip_code_prefix]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Inputs[Entrée de conversion de données].Columns[seller_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="seller_city"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_city]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Inputs[Entrée de conversion de données].Columns[seller_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="seller_state"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_state]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT-ODS Sellers\DCNV - Column resize.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_id_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_id_R]"
+                      name="seller_id_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_zip_code_prefix_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_zip_code_prefix_R]"
+                      name="seller_zip_code_prefix_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_zip_code_prefix]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_city_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_city_R]"
+                      name="seller_city_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_city]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_state_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_state_R]"
+                      name="seller_state_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_state]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT-ODS Sellers\DCNV - Column resize.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Sellers\DER - Replace ID"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER - Replace ID"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Sellers\DER - Replace ID.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\DER - Replace ID.Inputs[Entrée de colonne dérivée].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="seller_id"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[REPLACE](#{Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_id]},"\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(seller_id,"\"","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\DER - Replace ID.Inputs[Entrée de colonne dérivée].Columns[seller_zip_code_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="seller_zip_code_prefix"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_zip_code_prefix]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[REPLACE](#{Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_zip_code_prefix]},"\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(seller_zip_code_prefix,"\"","")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Sellers\DER - Replace ID.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT-ODS Sellers\DER - Replace ID.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Sellers\DER - Replace ID.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT-ODS Sellers\DER - Replace ID.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\DER - Replace ID.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\DER - Replace ID.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\DER - Replace ID.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\DER - Replace ID.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - City and State from Geolocation File"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Geolocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Geolocation]) [refTable]
+where [refTable].[geolocation_zip_code_prefix] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="geolocation_zip_code_prefix" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="geolocation_lat" dataType="DT_NUMERIC" length="0" precision="28" scale="18" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lng" dataType="DT_NUMERIC" length="0" precision="28" scale="18" codePage="0"/&gt;&lt;referenceColumn name="geolocation_city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="geolocation_state" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_zip_code_prefix]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Inputs[Lookup Input].Columns[seller_zip_code_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="seller_zip_code_prefix"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_zip_code_prefix]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">geolocation_zip_code_prefix</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Match Output].Columns[geolocation_lat]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Match Output].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      precision="28"
+                      scale="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">geolocation_lat</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Match Output].Columns[geolocation_lng]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Match Output].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      precision="28"
+                      scale="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">geolocation_lng</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - ODS Sellers"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Sellers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].Columns[seller_id_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id_R"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[seller_id]"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_id_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].Columns[seller_zip_code_prefix_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="seller_zip_code_prefix_R"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[seller_zip_code_prefix]"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_zip_code_prefix_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].Columns[seller_city_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_city_R"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[seller_city]"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_city_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].Columns[seller_state_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_state_R"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[seller_state]"
+                      lineageId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données].Columns[seller_state_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].Columns[geolocation_lat]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lat"
+                      cachedPrecision="28"
+                      cachedScale="18"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
+                      lineageId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Match Output].Columns[geolocation_lat]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].Columns[geolocation_lng]"
+                      cachedDataType="numeric"
+                      cachedName="geolocation_lng"
+                      cachedPrecision="28"
+                      cachedScale="18"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lng]"
+                      lineageId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Match Output].Columns[geolocation_lng]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="seller_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[seller_zip_code_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="seller_zip_code_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[seller_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="seller_city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[seller_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="seller_state" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lat]"
+                      dataType="numeric"
+                      name="geolocation_lat"
+                      precision="28"
+                      scale="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input].ExternalColumns[geolocation_lng]"
+                      dataType="numeric"
+                      name="geolocation_lng"
+                      precision="28"
+                      scale="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC - STA Sellers"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Sellers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_STA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].ExternalColumns[&quot;seller_id&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_id]"
+                      name="seller_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_zip_code_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].ExternalColumns[&quot;seller_zip_code_prefix&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_zip_code_prefix]"
+                      name="seller_zip_code_prefix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].ExternalColumns[&quot;seller_city&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_city]"
+                      name="seller_city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].ExternalColumns[&quot;seller_state&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].Columns[seller_state]"
+                      name="seller_state"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].ExternalColumns[&quot;seller_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;seller_id&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].ExternalColumns[&quot;seller_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;seller_zip_code_prefix&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].ExternalColumns[&quot;seller_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;seller_city&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output].ExternalColumns[&quot;seller_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;seller_state&quot;" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[&quot;seller_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[&quot;seller_id&quot;]"
+                      name="&quot;seller_id&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[&quot;seller_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[&quot;seller_zip_code_prefix&quot;]"
+                      name="&quot;seller_zip_code_prefix&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[&quot;seller_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[&quot;seller_city&quot;]"
+                      name="&quot;seller_city&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[&quot;seller_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[&quot;seller_state&quot;]"
+                      name="&quot;seller_state&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT-ODS Sellers.Paths[Lookup Match Output]"
+              endId="Package\DFT-ODS Sellers\DCNV - Column resize.Inputs[Entrée de conversion de données]"
+              name="Lookup Match Output"
+              startId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT-ODS Sellers.Paths[OLE DB Source Output]"
+              endId="Package\DFT-ODS Sellers\DER - Replace ID.Inputs[Entrée de colonne dérivée]"
+              name="OLE DB Source Output"
+              startId="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT-ODS Sellers.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File.Inputs[Lookup Input]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT-ODS Sellers\DER - Replace ID.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT-ODS Sellers.Paths[Sortie de conversion de données]"
+              endId="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers.Inputs[OLE DB Destination Input]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT-ODS Sellers\DCNV - Column resize.Outputs[Sortie de conversion de données]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate ODS Sellers"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DCEFB969-D0D1-4F9A-8E79-F4F1794FBC6D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate ODS Sellers"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B6CAA92B-6400-433E-B082-B6F37A9837A1}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Sellers" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{682CDB5F-B7AB-44AE-8536-C940CDD10EF3}"
+      DTS:From="Package\SQL - Truncate ODS Sellers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT-ODS Sellers" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS Sellers"
+          TopLeft="206.971157148713,136.599318225449" />
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\SQL - Truncate ODS Sellers"
+          TopLeft="183.124991813675,62.9473677299029" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="289.048074481194,105.61403439657">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.9852838288794"
+              Start="0,0"
+              End="0,23.4852838288794">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4852838288794" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT-ODS Sellers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS Sellers\DCNV - Column resize"
+          TopLeft="81.6538478123719,289.073178926896" />
+        <NodeLayout
+          Size="196.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers"
+          TopLeft="380.555538543397,336.023388123395" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\DFT-ODS Sellers\DER - Replace ID"
+          TopLeft="56.5384627697913,76.7419331598945" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers"
+          TopLeft="279.464273221259,29.3233079487126" />
+        <NodeLayout
+          Size="280,42.6666666666667"
+          Id="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File"
+          TopLeft="205.555546366507,180.740738837575" />
+        <EdgeLayout
+          Id="Package\DFT-ODS Sellers.Paths[Sortie de conversion de données]"
+          TopLeft="268.320514479039,310.406512260229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.235024064358,46.950209196499"
+              Start="0,0"
+              End="104.735024064358,46.950209196499">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.1175120321792,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.1175120321792,0"
+                    Point2="56.1175120321792,0"
+                    Point3="56.1175120321792,4" />
+                  <mssgle:LineSegment
+                    End="56.1175120321792,42.950209196499" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.1175120321792,42.950209196499"
+                    Point2="56.1175120321792,46.950209196499"
+                    Point3="60.1175120321792,46.950209196499" />
+                  <mssgle:LineSegment
+                    End="104.735024064358,46.950209196499" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Sellers.Paths[Sortie de colonne dérivée]"
+          TopLeft="138.538462769791,119.408599826561">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="207.017083596715,61.3321390110138"
+              Start="0,0"
+              End="207.017083596715,53.8321390110138">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6660695055069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.6660695055069"
+                    Point2="0,30.6660695055069"
+                    Point3="4,30.6660695055069" />
+                  <mssgle:LineSegment
+                    End="203.017083596715,30.6660695055069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="203.017083596715,30.6660695055069"
+                    Point2="207.017083596715,30.6660695055069"
+                    Point3="207.017083596715,34.6660695055069" />
+                  <mssgle:LineSegment
+                    End="207.017083596715,53.8321390110138" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="95.5085417983575,35.6660695055069,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Sellers.Paths[OLE DB Source Output]"
+          TopLeft="279.464273221259,50.6566412820459">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-58.9258104514677,47.4186252111819"
+              Start="0,0"
+              End="-51.4258104514677,47.4186252111819">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-25.4629052257338,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.4629052257338,0"
+                    Point2="-29.4629052257338,0"
+                    Point3="-29.4629052257338,4" />
+                  <mssgle:LineSegment
+                    End="-29.4629052257338,43.4186252111819" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.4629052257338,43.4186252111819"
+                    Point2="-29.4629052257338,47.4186252111819"
+                    Point3="-33.4629052257338,47.4186252111819" />
+                  <mssgle:LineSegment
+                    End="-51.4258104514677,47.4186252111819" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.4629052257338,-22,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Sellers.Paths[Lookup Match Output]"
+          TopLeft="345.555546366507,223.407405504242">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-170.568365220801,65.6657734226544"
+              Start="0,0"
+              End="-170.568365220801,58.1657734226544">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8328867113272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.8328867113272"
+                    Point2="0,32.8328867113272"
+                    Point3="-4,32.8328867113272" />
+                  <mssgle:LineSegment
+                    End="-166.568365220801,32.8328867113272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-166.568365220801,32.8328867113272"
+                    Point2="-170.568365220801,32.8328867113272"
+                    Point3="-170.568365220801,36.8328867113272" />
+                  <mssgle:LineSegment
+                    End="-170.568365220801,58.1657734226544" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-133.475569329151,37.8328867113272,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS Sellers\OLE_SRC - STA Sellers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS Sellers\LKP - City and State from Geolocation File">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Geolocation]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS Sellers\OLE_DST - ODS Sellers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1411 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/29/2024 10:52:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NEILIQ2"
+  DTS:CreatorName="DESKTOP-NEILIQ2\Dell"
+  DTS:DTSID="{BF490E7F-76C1-40AB-9D0B-B0A354FB9CCA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{4EE3E913-F10B-418E-8753-1359661B3C84}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.GP_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4D93DB9C-7504-4D43-89CE-BDE327D67638}"
+      DTS:ObjectName="localhost.GP_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=GP_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{4D93DB9C-7504-4D43-89CE-BDE327D67638}localhost.GP_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.GP_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6FA46DEB-0107-47E5-B2E1-063D814CA5F3}"
+      DTS:ObjectName="localhost.GP_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=GP_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{6FA46DEB-0107-47E5-B2E1-063D814CA5F3}localhost.GP_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ADM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{390F4693-B5CD-41DD-9584-68D6D38B6617}"
+      DTS:ObjectName="localhost.Project_ADM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ADM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{390F4693-B5CD-41DD-9584-68D6D38B6617}localhost.Project_ADM;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F253C300-0561-49AC-BABB-A97B5EEA7A65}"
+      DTS:ObjectName="localhost.Project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{F253C300-0561-49AC-BABB-A97B5EEA7A65}localhost.Project_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{73E90C1A-1094-4BAE-92CD-B0968FCDBC10}"
+      DTS:ObjectName="localhost.Project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{73E90C1A-1094-4BAE-92CD-B0968FCDBC10}localhost.Project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT-ODS Geolocation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{08D482A8-EFFC-4201-80AE-C0FDA000EB38}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT-ODS Geolocation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="30485760"
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="DCNV - Columnn Resize"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données].Columns[geolocation_zip_code_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="geolocation_zip_code_prefix"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_zip_code_prefix]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données].Columns[geolocation_lat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="geolocation_lat"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lat]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données].Columns[geolocation_lng]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="geolocation_lng"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lng]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données].Columns[geolocation_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="geolocation_city"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_city]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données].Columns[geolocation_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="geolocation_state"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_state]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_zip_code_prefix_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="10"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_zip_code_prefix_R]"
+                      name="geolocation_zip_code_prefix_R"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_zip_code_prefix]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_lat_R]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_lat_R]"
+                      name="geolocation_lat_R"
+                      scale="18"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lat]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_lng_R]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_lng_R]"
+                      name="geolocation_lng_R"
+                      scale="18"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lng]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_city_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="50"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_city_R]"
+                      name="geolocation_city_R"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_city]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_state_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="50"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_state_R]"
+                      name="geolocation_state_R"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_state]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Geolocation\DER - Column Regets"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - Column Regets"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Geolocation\DER - Column Regets.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Column Regets.Inputs[Derived Column Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT-ODS Geolocation\DER - Column Regets.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[Regets_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[Regets_Date]"
+                      name="Regets_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="122"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]"
+                      name="RegetsPackadgeAndTask"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + @[System::TaskName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + @[System::TaskName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetColumn]"
+                      name="RegetColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)#{Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)ErrorColumn</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetDescription]"
+                      name="RegetDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)"The value in column is not a valid number"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)"The value in column is not a valid number"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT-ODS Geolocation\DER - Column Regets.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER - Replace &quot;,&quot;"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Inputs[Entrée de colonne dérivée].Columns[geolocation_zip_code_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="geolocation_zip_code_prefix"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_zip_code_prefix]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[REPLACE](#{Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_zip_code_prefix]},"\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(geolocation_zip_code_prefix,"\"","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Inputs[Entrée de colonne dérivée].Columns[geolocation_lat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="geolocation_lat"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lat]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[REPLACE](#{Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lat]},".",",")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(geolocation_lat,".",",")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Inputs[Entrée de colonne dérivée].Columns[geolocation_lng]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="geolocation_lng"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lng]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[REPLACE](#{Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lng]},".",",")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(geolocation_lng,".",",")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - ADM Regets"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Regets]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ADM]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ADM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].Columns[Regets_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Regets_Date"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[Regets_Date]"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[Regets_Date]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].Columns[RegetsPackadgeAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="122"
+                      cachedName="RegetsPackadgeAndTask"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetsPackadgeAndTask]"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].Columns[RegetColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RegetColumn"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetColumn]"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetColumn]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].Columns[RegetDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RegetDescription"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetDescription]"
+                      lineageId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output].Columns[RegetDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[Regets_Date]"
+                      dataType="dbTimeStamp"
+                      name="Regets_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetsPackadgeAndTask]"
+                      dataType="wstr"
+                      length="210"
+                      name="RegetsPackadgeAndTask" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetColumn]"
+                      dataType="wstr"
+                      length="50"
+                      name="RegetColumn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetDescription]"
+                      dataType="wstr"
+                      length="374"
+                      name="RegetDescription" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - Geolocation"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Geolocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].Columns[geolocation_zip_code_prefix_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="geolocation_zip_code_prefix_R"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_zip_code_prefix]"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_zip_code_prefix_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].Columns[geolocation_lat_R]"
+                      cachedDataType="decimal"
+                      cachedName="geolocation_lat_R"
+                      cachedScale="18"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_lat]"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_lat_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].Columns[geolocation_lng_R]"
+                      cachedDataType="decimal"
+                      cachedName="geolocation_lng_R"
+                      cachedScale="18"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_lng]"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_lng_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].Columns[geolocation_city_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="geolocation_city_R"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_city]"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_city_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].Columns[geolocation_state_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="geolocation_state_R"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_state]"
+                      lineageId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données].Columns[geolocation_state_R]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_zip_code_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="geolocation_zip_code_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_lat]"
+                      dataType="numeric"
+                      name="geolocation_lat"
+                      precision="28"
+                      scale="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_lng]"
+                      dataType="numeric"
+                      name="geolocation_lng"
+                      precision="28"
+                      scale="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geolocation_city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB].ExternalColumns[geolocation_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geolocation_state" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - STA Geolocation"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Geolocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_STA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_zip_code_prefix]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_zip_code_prefix&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_zip_code_prefix]"
+                      name="geolocation_zip_code_prefix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_lat&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lat]"
+                      name="geolocation_lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lng]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_lng&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_lng]"
+                      name="geolocation_lng"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_city&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_city]"
+                      name="geolocation_city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_state&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].Columns[geolocation_state]"
+                      name="geolocation_state"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;geolocation_zip_code_prefix&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_lat&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;geolocation_lat&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_lng&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;geolocation_lng&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;geolocation_city&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;geolocation_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;geolocation_state&quot;" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_zip_code_prefix&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_zip_code_prefix&quot;]"
+                      name="&quot;geolocation_zip_code_prefix&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_lat&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_lat&quot;]"
+                      name="&quot;geolocation_lat&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_lng&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_lng&quot;]"
+                      name="&quot;geolocation_lng&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_city&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_city&quot;]"
+                      name="&quot;geolocation_city&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_state&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;geolocation_state&quot;]"
+                      name="&quot;geolocation_state&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT-ODS Geolocation.Paths[Derived Column Output]"
+              endId="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT-ODS Geolocation\DER - Column Regets.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT-ODS Geolocation.Paths[Sortie d'erreur de conversion de données]"
+              endId="Package\DFT-ODS Geolocation\DER - Column Regets.Inputs[Derived Column Input]"
+              name="Sortie d'erreur de conversion de données"
+              startId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie d'erreur de conversion de données]" />
+            <path
+              refId="Package\DFT-ODS Geolocation.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT-ODS Geolocation.Paths[Sortie de conversion de données]"
+              endId="Package\DFT-ODS Geolocation\OLE_DST - Geolocation.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT-ODS Geolocation\DCNV - Columnn Resize.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT-ODS Geolocation.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate ODS Geolocation"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e63d1df9-9763-4486-b22f-1a3485c72cb7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate ODS Geolocation"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F253C300-0561-49AC-BABB-A97B5EEA7A65}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Geolocation" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3AA2F2B8-DD12-4ADF-A101-B7E53BB0A9CE}"
+      DTS:From="Package\SQL - Truncate ODS Geolocation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT-ODS Geolocation" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS Geolocation"
+          TopLeft="230.817312179023,163.06281584151" />
+        <NodeLayout
+          Size="238.666666666667,42.6666666666667"
+          Id="Package\SQL - Truncate ODS Geolocation"
+          TopLeft="212.692312989273,74.8698354663311" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="328.088145917481,117.536502132998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.5263137085122"
+              Start="0,0"
+              End="0,38.0263137085122">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.0263137085122" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT-ODS Geolocation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\DFT-ODS Geolocation\DER - Replace &quot;,&quot;"
+          TopLeft="195.769235032815,88.0645134621741" />
+        <NodeLayout
+          Size="218.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation"
+          TopLeft="229.230774223099,14.6774189103623" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\DFT-ODS Geolocation\DER - Column Regets"
+          TopLeft="394.698717761241,138.46632224664" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS Geolocation\OLE_DST - Geolocation"
+          TopLeft="264.230774985351,231.483863957715" />
+        <NodeLayout
+          Size="197.333333333334,42.6666666666667"
+          Id="Package\DFT-ODS Geolocation\DCNV - Columnn Resize"
+          TopLeft="19.6153850425805,141.741931191499" />
+        <NodeLayout
+          Size="197.333333333334,42.6666666666667"
+          Id="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets"
+          TopLeft="676.282043215586,131.799655009023" />
+        <EdgeLayout
+          Id="Package\DFT-ODS Geolocation.Paths[Sortie de source OLE DB]"
+          TopLeft="338.564107556432,57.344085577029">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60.7948725236173,30.7204278851451"
+              Start="0,0"
+              End="-60.7948725236173,23.2204278851451">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.3602139425726" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.3602139425726"
+                    Point2="0,15.3602139425726"
+                    Point3="-4,15.3602139425726" />
+                  <mssgle:LineSegment
+                    End="-56.7948725236173,15.3602139425726" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.7948725236173,15.3602139425726"
+                    Point2="-60.7948725236173,15.3602139425726"
+                    Point3="-60.7948725236173,19.3602139425726" />
+                  <mssgle:LineSegment
+                    End="-60.7948725236173,23.2204278851451" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Geolocation.Paths[Sortie de conversion de données]"
+          TopLeft="118.282051709247,184.408597858166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="243.282056609437,47.0752660995493"
+              Start="0,0"
+              End="243.282056609437,39.5752660995493">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5376330497747" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5376330497747"
+                    Point2="0,23.5376330497747"
+                    Point3="4,23.5376330497747" />
+                  <mssgle:LineSegment
+                    End="239.282056609437,23.5376330497747" />
+                  <mssgle:CubicBezierSegment
+                    Point1="239.282056609437,23.5376330497747"
+                    Point2="243.282056609437,23.5376330497747"
+                    Point3="243.282056609437,27.5376330497747" />
+                  <mssgle:LineSegment
+                    End="243.282056609437,39.5752660995493" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Geolocation.Paths[Sortie de colonne dérivée]"
+          TopLeft="195.769235032815,109.397846795507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-77.4871833235678,32.3440843959916"
+              Start="0,0"
+              End="-77.4871833235678,24.8440843959916">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-73.4871833235678,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-73.4871833235678,0"
+                    Point2="-77.4871833235678,0"
+                    Point3="-77.4871833235678,4" />
+                  <mssgle:LineSegment
+                    End="-77.4871833235678,24.8440843959916" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Geolocation.Paths[Sortie d'erreur de conversion de données]"
+          TopLeft="216.948718375914,161.437460052403">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177.749999385327,0"
+              Start="0,0"
+              End="170.249999385327,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="170.249999385327,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-6.38324249483651,5,183.016484375,10.3349609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Geolocation.Paths[Derived Column Output]"
+          TopLeft="580.032051094574,156.466321961165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.2499921210117,0"
+              Start="0,0"
+              End="88.7499921210117,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="88.7499921210117,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS Geolocation\OLE_SRC - STA Geolocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS Geolocation\OLE_DST - Geolocation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS Geolocation\OLE_DST - ADM Regets">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

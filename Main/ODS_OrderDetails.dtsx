@@ -1,0 +1,1184 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/31/2024 12:41:50 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NEILIQ2"
+  DTS:CreatorName="DESKTOP-NEILIQ2\Dell"
+  DTS:DTSID="{F2BD3BFF-FA38-4E39-A0A5-E6AF2A6A358A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="ODS_OrderDetails"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{5507E408-AB13-4351-8BA9-DC92D56ED7C7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.GP_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9117AA8B-C8F7-4D2B-99FA-D82E5E2CCC61}"
+      DTS:ObjectName="localhost.GP_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=GP_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{9117AA8B-C8F7-4D2B-99FA-D82E5E2CCC61}localhost.GP_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B8708AE1-BD2A-4216-B7FD-780CD334F76B}"
+      DTS:ObjectName="localhost.Project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B8708AE1-BD2A-4216-B7FD-780CD334F76B}localhost.Project_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT-ODS OrderDetails"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{483A1A25-CE81-48EC-91C1-3FB9981B664A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT-ODS OrderDetails"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP - Data from Customers table"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Customers]) [refTable]
+where [refTable].[customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customer_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_unique_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_zip_code_prefix" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_state" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="geolocation_lat" dataType="DT_NUMERIC" length="0" precision="28" scale="18" codePage="0"/&gt;&lt;referenceColumn name="geolocation_lng" dataType="DT_NUMERIC" length="0" precision="28" scale="18" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[customer_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Inputs[Entrée de recherche].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">customer_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche avec correspondance].Columns[customer_city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="50"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche avec correspondance].Columns[customer_city]"
+                      name="customer_city"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">customer_city</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche avec correspondance].Columns[customer_state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="50"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche avec correspondance].Columns[customer_state]"
+                      name="customer_state"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">customer_state</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP - Data from Orders table"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Orders]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Orders]) [refTable]
+where [refTable].[order_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="order_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="order_status" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="order_purchase_timestamp" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="order_approved_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="order_delivered_customer_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="order_estimated_delivery_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="order_delivered_carrier_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[order_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Inputs[Entrée de recherche].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[order_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">order_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_purchase_timestamp]"
+                      name="order_purchase_timestamp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">order_purchase_timestamp</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_approved_at]"
+                      name="order_approved_at"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">order_approved_at</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_delivered_customer_date]"
+                      name="order_delivered_customer_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">order_delivered_customer_date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_estimated_delivery_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_estimated_delivery_date]"
+                      name="order_estimated_delivery_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">order_estimated_delivery_date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_delivered_carrier_date]"
+                      name="order_delivered_carrier_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">order_delivered_carrier_date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="50"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">customer_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - Order Details"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[OrderDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[payment_sequential]"
+                      cachedDataType="i8"
+                      cachedName="payment_sequential"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[payment_sequential]"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_sequential]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[payment_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="payment_type"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[payment_type]"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_type]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[payment_installments]"
+                      cachedDataType="i8"
+                      cachedName="payment_installments"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[payment_installments]"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_installments]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[order_purchase_timestamp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_purchase_timestamp"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_purchase_timestamp]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[order_approved_at]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_approved_at"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_approved_at]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[order_delivered_customer_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_customer_date"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_delivered_customer_date]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[order_estimated_delivery_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_estimated_delivery_date"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_estimated_delivery_date]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[order_delivered_carrier_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_carrier_date"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance].Columns[order_delivered_carrier_date]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[customer_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_city"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche avec correspondance].Columns[customer_city]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].Columns[customer_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_state"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[customer_state]"
+                      lineageId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche avec correspondance].Columns[customer_state]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[customer_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_state" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[payment_sequential]"
+                      dataType="i8"
+                      name="payment_sequential" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[payment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="payment_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[payment_installments]"
+                      dataType="i8"
+                      name="payment_installments" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      name="order_purchase_timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      name="order_approved_at" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_customer_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
+                      dataType="dbTimeStamp"
+                      name="order_estimated_delivery_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_carrier_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - ODS Payment"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Payment]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[order_id]"
+                      length="50"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_sequential]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[payment_sequential]"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_sequential]"
+                      name="payment_sequential"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[payment_type]"
+                      length="15"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_type]"
+                      name="payment_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_installments]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[payment_installments]"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].Columns[payment_installments]"
+                      name="payment_installments"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[payment_sequential]"
+                      dataType="i8"
+                      name="payment_sequential" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[payment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="payment_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[payment_installments]"
+                      dataType="i8"
+                      name="payment_installments" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB].ExternalColumns[payment_value]"
+                      dataType="numeric"
+                      name="payment_value"
+                      precision="28"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[payment_sequential]"
+                      dataType="i8"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[payment_sequential]"
+                      name="payment_sequential" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[payment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[payment_type]"
+                      name="payment_type" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[payment_installments]"
+                      dataType="i8"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[payment_installments]"
+                      name="payment_installments" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT-ODS OrderDetails.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\DFT-ODS OrderDetails.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\DFT-ODS OrderDetails\OLE_DST - Order Details.Inputs[OLE DB Destination Input]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\DFT-ODS OrderDetails\LKP - Data from Customers table.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\DFT-ODS OrderDetails.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT-ODS OrderDetails\LKP - Data from Orders table.Inputs[Entrée de recherche]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate ODS Order details"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c775506e-cd67-4b57-a3b7-c133389d705f}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate ODS Order details"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B8708AE1-BD2A-4216-B7FD-780CD334F76B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.OrderDetails" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{72367E55-5D09-4051-8E63-4522D9C1B4E6}"
+      DTS:From="Package\SQL - Truncate ODS Order details"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT-ODS OrderDetails" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT-ODS OrderDetails"
+          TopLeft="185.721156769018,97.7317468764705" />
+        <NodeLayout
+          Size="242.666666666667,42.6666666666667"
+          Id="Package\SQL - Truncate ODS Order details"
+          TopLeft="172.596157355752,31.433503102997" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="293.929490689085,74.1001697696637">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5416672534006,23.6315771068068"
+              Start="0,0"
+              End="-13.5416672534006,16.1315771068068">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.81578855340342" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.81578855340342"
+                    Point2="0,11.8157885534034"
+                    Point3="-4,11.8157885534034" />
+                  <mssgle:LineSegment
+                    End="-9.54166725340065,11.8157885534034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.54166725340065,11.8157885534034"
+                    Point2="-13.5416672534006,11.8157885534034"
+                    Point3="-13.5416672534006,15.8157885534034" />
+                  <mssgle:LineSegment
+                    End="-13.5416672534006,16.1315771068068" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT-ODS OrderDetails">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="206.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment"
+          TopLeft="248.84615926568,8.38709652020705" />
+        <NodeLayout
+          Size="236,42.6666666666667"
+          Id="Package\DFT-ODS OrderDetails\LKP - Data from Customers table"
+          TopLeft="221.538466363264,202.967735789011" />
+        <NodeLayout
+          Size="217.333333333334,42.6666666666667"
+          Id="Package\DFT-ODS OrderDetails\LKP - Data from Orders table"
+          TopLeft="188.605773379895,90.9999972442466" />
+        <EdgeLayout
+          Id="Package\DFT-ODS OrderDetails.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="297.272440046561,133.666663910913">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.2660263167026,69.3010718780977"
+              Start="0,0"
+              End="42.2660263167026,61.8010718780977">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.6505359390489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.6505359390489"
+                    Point2="0,34.6505359390489"
+                    Point3="4,34.6505359390489" />
+                  <mssgle:LineSegment
+                    End="38.2660263167026,34.6505359390489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.2660263167026,34.6505359390489"
+                    Point2="42.2660263167026,34.6505359390489"
+                    Point3="42.2660263167026,38.6505359390489" />
+                  <mssgle:LineSegment
+                    End="42.2660263167026,61.8010718780977" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.5439985603987,39.6505359390489,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS OrderDetails.Paths[Sortie de source OLE DB]"
+          TopLeft="352.179492599013,51.0537631868737">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-54.9070525524519,39.9462340573729"
+              Start="0,0"
+              End="-54.9070525524519,32.4462340573729">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9731170286864" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.9731170286864"
+                    Point2="0,19.9731170286864"
+                    Point3="-4,19.9731170286864" />
+                  <mssgle:LineSegment
+                    End="-50.9070525524519,19.9731170286864" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-50.9070525524519,19.9731170286864"
+                    Point2="-54.9070525524519,19.9731170286864"
+                    Point3="-54.9070525524519,23.9731170286864" />
+                  <mssgle:LineSegment
+                    End="-54.9070525524519,32.4462340573729" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="200.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS OrderDetails\OLE_DST - Order Details"
+          TopLeft="275.624987678603,308.578943980285" />
+        <EdgeLayout
+          Id="Package\DFT-ODS OrderDetails.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="339.538466363264,245.634402455678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.4198546486721,62.9445415246075"
+              Start="0,0"
+              End="36.4198546486721,55.4445415246075">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.4722707623038" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.4722707623038"
+                    Point2="0,31.4722707623038"
+                    Point3="4,31.4722707623038" />
+                  <mssgle:LineSegment
+                    End="32.4198546486721,31.4722707623038" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.4198546486721,31.4722707623038"
+                    Point2="36.4198546486721,31.4722707623038"
+                    Point3="36.4198546486721,35.4722707623038" />
+                  <mssgle:LineSegment
+                    End="36.4198546486721,55.4445415246075" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.467084394414,36.4722707623038,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS OrderDetails\OLE_SRC - ODS Payment">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS OrderDetails\LKP - Data from Customers table">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Customers]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS OrderDetails\LKP - Data from Orders table">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Orders]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS OrderDetails\OLE_DST - Order Details">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

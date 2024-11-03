@@ -1,0 +1,994 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/29/2024 1:20:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NEILIQ2"
+  DTS:CreatorName="DESKTOP-NEILIQ2\Dell"
+  DTS:DTSID="{2AF9C175-C032-474C-A9FB-05996023B466}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{76FE1F43-EAD3-4F89-BC1D-B0D05E1FD445}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.GP_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3B7ED08D-0D75-49A5-926A-6AAD075A4400}"
+      DTS:ObjectName="localhost.GP_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=GP_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{3B7ED08D-0D75-49A5-926A-6AAD075A4400}localhost.GP_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.GP_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{366A8EBD-302D-4559-87FA-0DC8615E4386}"
+      DTS:ObjectName="localhost.GP_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=GP_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{366A8EBD-302D-4559-87FA-0DC8615E4386}localhost.GP_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DD00C014-088B-4C2C-8DA5-831347B89B2C}"
+      DTS:ObjectName="localhost.Project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{DD00C014-088B-4C2C-8DA5-831347B89B2C}localhost.Project_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C6A7B5E9-D232-4B50-9EDF-1B2EE92C7BEE}"
+      DTS:ObjectName="localhost.Project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{C6A7B5E9-D232-4B50-9EDF-1B2EE92C7BEE}localhost.Project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT-ODS Payment"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{CA30EF30-D4F2-40C0-A3F7-9B6392F32A4B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT-ODS Payment"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT-ODS Payment\DCNV Columns"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="DCNV Columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données].Columns[payment_sequential]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="payment_sequential"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_sequential]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données].Columns[payment_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="payment_type"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_type]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données].Columns[payment_installments]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="payment_installments"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_installments]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données].Columns[payment_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="payment_value"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_value]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[order_id_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[order_id_R]"
+                      name="order_id_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[order_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_sequential_R]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_sequential_R]"
+                      name="payment_sequential_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_sequential]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_type_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_type_R]"
+                      name="payment_type_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_installments_R]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_installments_R]"
+                      name="payment_installments_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_installments]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_value_R]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_value_R]"
+                      name="payment_value_R"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_value]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Payment\DER-Replace Columns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER-Replace Columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Payment\DER-Replace Columns.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\DER-Replace Columns.Inputs[Entrée de colonne dérivée].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="order_id"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[order_id]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[REPLACE](#{Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[order_id]},"\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(order_id,"\"","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\DER-Replace Columns.Inputs[Entrée de colonne dérivée].Columns[payment_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="payment_value"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_value]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[REPLACE](#{Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_value]},".",",")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(payment_value,".",",")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Payment\DER-Replace Columns.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT-ODS Payment\DER-Replace Columns.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS Payment\DER-Replace Columns.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT-ODS Payment\DER-Replace Columns.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DER-Replace Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Payment\DER-Replace Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\DER-Replace Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Payment\DER-Replace Columns.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST-ODS Payment"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Payment]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].Columns[order_id_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id_R"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[order_id]"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[order_id_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].Columns[payment_sequential_R]"
+                      cachedDataType="i8"
+                      cachedName="payment_sequential_R"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[payment_sequential]"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_sequential_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].Columns[payment_type_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="payment_type_R"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[payment_type]"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_type_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].Columns[payment_installments_R]"
+                      cachedDataType="i8"
+                      cachedName="payment_installments_R"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[payment_installments]"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_installments_R]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].Columns[payment_value_R]"
+                      cachedDataType="decimal"
+                      cachedName="payment_value_R"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[payment_value]"
+                      lineageId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données].Columns[payment_value_R]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[payment_sequential]"
+                      dataType="i8"
+                      name="payment_sequential" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[payment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="payment_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[payment_installments]"
+                      dataType="i8"
+                      name="payment_installments" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB].ExternalColumns[payment_value]"
+                      dataType="numeric"
+                      name="payment_value"
+                      precision="28"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC-STA Payment"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Payments]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_STA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;order_id&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_sequential]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;payment_sequential&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_sequential]"
+                      name="payment_sequential"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;payment_type&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_type]"
+                      name="payment_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_installments]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;payment_installments&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_installments]"
+                      name="payment_installments"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_value]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;payment_value&quot;]"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].Columns[payment_value]"
+                      name="payment_value"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;order_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;order_id&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;payment_sequential&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;payment_sequential&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;payment_type&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;payment_type&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;payment_installments&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;payment_installments&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB].ExternalColumns[&quot;payment_value&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;payment_value&quot;" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;order_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;order_id&quot;]"
+                      name="&quot;order_id&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;payment_sequential&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;payment_sequential&quot;]"
+                      name="&quot;payment_sequential&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;payment_type&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;payment_type&quot;]"
+                      name="&quot;payment_type&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;payment_installments&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;payment_installments&quot;]"
+                      name="&quot;payment_installments&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;payment_value&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[&quot;payment_value&quot;]"
+                      name="&quot;payment_value&quot;" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT-ODS Payment.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT-ODS Payment\DCNV Columns.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT-ODS Payment\DER-Replace Columns.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT-ODS Payment.Paths[Sortie de conversion de données]"
+              endId="Package\DFT-ODS Payment\OLE_DST-ODS Payment.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT-ODS Payment\DCNV Columns.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT-ODS Payment.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT-ODS Payment\DER-Replace Columns.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT-ODS Payment\OLE_SRC-STA Payment.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate ODS Payment"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E301DEE3-9FA0-4B0E-80F5-4EB341EFB647}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate ODS Payment"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DD00C014-088B-4C2C-8DA5-831347B89B2C}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Payment" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C0453145-BCF1-4FFD-85BA-BF225BDE3E5C}"
+      DTS:From="Package\SQL - Truncate ODS Payment"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT-ODS Payment" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DFT-ODS Payment"
+          TopLeft="232.163471206858,111.50424239982" />
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\SQL - Truncate ODS Payment"
+          TopLeft="202.499990947545,21.8947366017054" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="315.998397743868,64.561403268372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.9428391314481"
+              Start="0,0"
+              End="0,39.4428391314481">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.4428391314481" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT-ODS Payment">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,41.3333333333334"
+          Id="Package\DFT-ODS Payment\OLE_DST-ODS Payment"
+          TopLeft="401.538470283416,218.483864351394" />
+        <NodeLayout
+          Size="198.666666666667,42.6666666666667"
+          Id="Package\DFT-ODS Payment\OLE_SRC-STA Payment"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="154.666666666667,41.3333333333334"
+          Id="Package\DFT-ODS Payment\DCNV Columns"
+          TopLeft="155.384618768678,152.645156667768" />
+        <NodeLayout
+          Size="190.666666666667,41.3333333333334"
+          Id="Package\DFT-ODS Payment\DER-Replace Columns"
+          TopLeft="313.84616068129,52.8387080773045" />
+        <EdgeLayout
+          Id="Package\DFT-ODS Payment.Paths[Sortie de colonne dérivée]"
+          TopLeft="409.04616068129,94.4387080773045">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-176.461541912612,58.206448590464"
+              Start="0,0"
+              End="-176.461541912612,50.706448590464">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.103224295232" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.103224295232"
+                    Point2="0,29.103224295232"
+                    Point3="-4,29.103224295232" />
+                  <mssgle:LineSegment
+                    End="-172.461541912612,29.103224295232" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-172.461541912612,29.103224295232"
+                    Point2="-176.461541912612,29.103224295232"
+                    Point3="-176.461541912612,33.103224295232" />
+                  <mssgle:LineSegment
+                    End="-176.461541912612,50.706448590464" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Payment.Paths[Sortie de source OLE DB]"
+          TopLeft="204.166666666667,26.8333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.679494014623,46.6720414106378"
+              Start="0,0"
+              End="102.179494014623,46.6720414106378">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.8397470073117,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.8397470073117,0"
+                    Point2="54.8397470073117,0"
+                    Point3="54.8397470073117,4" />
+                  <mssgle:LineSegment
+                    End="54.8397470073117,42.6720414106378" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.8397470073117,42.6720414106378"
+                    Point2="54.8397470073117,46.6720414106378"
+                    Point3="58.8397470073117,46.6720414106378" />
+                  <mssgle:LineSegment
+                    End="102.179494014623,46.6720414106378" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS Payment.Paths[Sortie de conversion de données]"
+          TopLeft="232.584618768678,194.245156667768">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="268.953851514738,24.2387076836259"
+              Start="0,0"
+              End="268.953851514738,16.7387076836259">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.11935384181297" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.11935384181297"
+                    Point2="0,12.119353841813"
+                    Point3="4,12.119353841813" />
+                  <mssgle:LineSegment
+                    End="264.953851514738,12.119353841813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="264.953851514738,12.119353841813"
+                    Point2="268.953851514738,12.119353841813"
+                    Point3="268.953851514738,16.119353841813" />
+                  <mssgle:LineSegment
+                    End="268.953851514738,16.7387076836259" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS Payment\OLE_DST-ODS Payment">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS Payment\OLE_SRC-STA Payment">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2715 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/28/2024 8:47:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-SOAPTI2FUKM"
+  DTS:CreatorName="WIN-SOAPTI2FUKM\Administrator"
+  DTS:DTSID="{DCAF362F-BFD4-4502-B42D-771332CE8260}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ODS_Products"
+  DTS:PackageType="5"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{CF8FCD5E-5CF5-4427-902D-261A6FAED8DC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ADM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{390F4693-B5CD-41DD-9584-68D6D38B6617}"
+      DTS:ObjectName="localhost.Project_ADM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ADM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{390F4693-B5CD-41DD-9584-68D6D38B6617}localhost.Project_ADM;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{593C07B1-802A-4D9A-9CB9-92598587E342}"
+      DTS:ObjectName="localhost.Project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{593C07B1-802A-4D9A-9CB9-92598587E342}localhost.Project_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_ODS 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E0555400-6EBA-4512-9A1E-BF753BA1C040}"
+      DTS:ObjectName="localhost.Project_ODS 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E0555400-6EBA-4512-9A1E-BF753BA1C040}localhost.Project_ODS 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3202FE09-3398-42CD-9FA5-BB614A3ACCE5}"
+      DTS:ObjectName="localhost.Project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{3202FE09-3398-42CD-9FA5-BB614A3ACCE5}localhost.Project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Project_STA 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A06C4583-534F-458E-B709-9C2049241476}"
+      DTS:ObjectName="localhost.Project_STA 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Project_STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{A06C4583-534F-458E-B709-9C2049241476}localhost.Project_STA 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - ODS Products"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{02CFA7D4-9F83-429F-B1E0-34BC1F221EC3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - ODS Products"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - ODS Products\ALL - Regets"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="ALL - Regets"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_id&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_id&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_id&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_id"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_category_name&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_category_name&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_category_name&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_category_name"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_name_lenght&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_name_lenght&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_name_lenght&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_name_lenght"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_description_lenght&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_description_lenght&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_description_lenght&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_description_lenght"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_photos_qty&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_photos_qty&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_photos_qty&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_photos_qty"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_weight_g&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_weight_g&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_weight_g&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_weight_g"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_length_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_length_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_length_cm&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_length_cm"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_height_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_height_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_height_cm&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_height_cm"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[&quot;product_width_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_width_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_width_cm&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_width_cm"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[Regets_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Regets_Date"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[Regets_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[Regets_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[RegetsPackadgeAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="122"
+                      cachedName="RegetsPackadgeAndTask"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetsPackadgeAndTask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[RegetColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RegetColumn"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3].Columns[RegetDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RegetDescription"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1]"
+                  hasSideEffects="true"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_id&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_id&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_id&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_id"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_category_name&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_category_name&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_category_name&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_category_name"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_name_lenght&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_name_lenght&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_name_lenght&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_name_lenght"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_description_lenght&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_description_lenght&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_description_lenght&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_description_lenght"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_photos_qty&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_photos_qty&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_photos_qty&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_photos_qty"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_weight_g&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_weight_g&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_weight_g&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_weight_g"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_length_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_length_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_length_cm&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_length_cm"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_height_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_height_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_height_cm&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_height_cm"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[&quot;product_width_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_width_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_width_cm&quot;]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns["product_width_cm"]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[Regets_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Regets_Date"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[Regets_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[Regets_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[RegetsPackadgeAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="122"
+                      cachedName="RegetsPackadgeAndTask"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetsPackadgeAndTask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1].Columns[RegetColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RegetColumn"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[RegetColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_id&quot;]"
+                      name="&quot;product_id&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_category_name&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_category_name&quot;]"
+                      name="&quot;product_category_name&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_name_lenght&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_name_lenght&quot;]"
+                      name="&quot;product_name_lenght&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_description_lenght&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_description_lenght&quot;]"
+                      name="&quot;product_description_lenght&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_photos_qty&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_photos_qty&quot;]"
+                      name="&quot;product_photos_qty&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_weight_g&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_weight_g&quot;]"
+                      name="&quot;product_weight_g&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_length_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_length_cm&quot;]"
+                      name="&quot;product_length_cm&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_height_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_height_cm&quot;]"
+                      name="&quot;product_height_cm&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_width_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[&quot;product_width_cm&quot;]"
+                      name="&quot;product_width_cm&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[Regets_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[Regets_Date]"
+                      name="Regets_Date" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetsPackadgeAndTask]"
+                      dataType="wstr"
+                      length="122"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetsPackadgeAndTask]"
+                      name="RegetsPackadgeAndTask" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetColumn]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetColumn]"
+                      name="RegetColumn" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetDescription]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetDescription]"
+                      name="RegetDescription" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\DCNV - Column resize"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCNV - Column resize"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\DCNV - Column resize.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Inputs[Data Conversion Input].Columns[&quot;product_id&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_id&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_id&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Inputs[Data Conversion Input].Columns[&quot;product_weight_g&quot;]"
+                      cachedDataType="numeric"
+                      cachedName="&quot;product_weight_g&quot;"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_weight_g&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Inputs[Data Conversion Input].Columns[product_volume_cm2]"
+                      cachedDataType="numeric"
+                      cachedName="product_volume_cm2"
+                      cachedPrecision="38"
+                      lineageId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Output].Columns[product_volume_cm2]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Inputs[Data Conversion Input].Columns[product_category_name_english]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_category_name_english"
+                      lineageId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Match Output].Columns[product_category_name_english]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - ODS Products\DCNV - Column resize.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_id_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_id_R]"
+                      name="product_id_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns["product_id"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_weight_g_R]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_weight_g_R]"
+                      name="product_weight_g_R"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Output].Columns["product_weight_g"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_volume_cm2_R]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_volume_cm2_R]"
+                      name="product_volume_cm2_R"
+                      precision="38"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Output].Columns[product_volume_cm2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_category_name_english_R]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_category_name_english_R]"
+                      name="product_category_name_english_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Match Output].Columns[product_category_name_english]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\DCNV - Column resize.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCNV - Numbers to Numeric"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Inputs[Data Conversion Input].Columns[&quot;product_length_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_length_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_length_cm&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Inputs[Data Conversion Input].Columns[&quot;product_height_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_height_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_height_cm&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Inputs[Data Conversion Input].Columns[&quot;product_width_cm&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_width_cm&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_width_cm&quot;]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_length_cm&quot;]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_length_cm&quot;]"
+                      name="&quot;product_length_cm&quot;"
+                      precision="18"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns["product_length_cm"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_height_cm&quot;]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_height_cm&quot;]"
+                      name="&quot;product_height_cm&quot;"
+                      precision="18"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns["product_height_cm"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_width_cm&quot;]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_width_cm&quot;]"
+                      name="&quot;product_width_cm&quot;"
+                      precision="18"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns["product_width_cm"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\DCNV - Weight to Numeric"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCNV - Weight to Numeric"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Inputs[Data Conversion Input].Columns[&quot;product_weight_g&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_weight_g&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_weight_g&quot;]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_weight_g&quot;]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_weight_g&quot;]"
+                      name="&quot;product_weight_g&quot;"
+                      precision="18"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns["product_weight_g"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\DER - Number Regets"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - Number Regets"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\DER - Number Regets.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - ODS Products\DER - Number Regets.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[Regets_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[Regets_Date]"
+                      name="Regets_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="122"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]"
+                      name="RegetsPackadgeAndTask"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + @[System::TaskName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + @[System::TaskName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetColumn]"
+                      name="RegetColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"Number"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"Number"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output].Columns[RegetDescription]"
+                      name="RegetDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)"The value in column is not a valid amount"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)"The value in column is not a valid amount"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\DER - Number Regets.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\DER - Volume column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - Volume column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\DER - Volume column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DER - Volume column.Inputs[Derived Column Input].Columns[&quot;product_length_cm&quot;]"
+                      cachedDataType="numeric"
+                      cachedName="&quot;product_length_cm&quot;"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_length_cm&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DER - Volume column.Inputs[Derived Column Input].Columns[&quot;product_height_cm&quot;]"
+                      cachedDataType="numeric"
+                      cachedName="&quot;product_height_cm&quot;"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_height_cm&quot;]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DER - Volume column.Inputs[Derived Column Input].Columns[&quot;product_width_cm&quot;]"
+                      cachedDataType="numeric"
+                      cachedName="&quot;product_width_cm&quot;"
+                      cachedPrecision="18"
+                      lineageId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns[&quot;product_width_cm&quot;]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - ODS Products\DER - Volume column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Output].Columns[product_volume_cm2]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Output].Columns[product_volume_cm2]"
+                      name="product_volume_cm2"
+                      precision="38"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns["product_width_cm"]} * #{Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns["product_height_cm"]} * #{Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output].Columns["product_length_cm"]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[DCNV - Numbers to Numeric].["product_width_cm"] * [DCNV - Numbers to Numeric].["product_height_cm"] * [DCNV - Numbers to Numeric].["product_length_cm"]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\DER - Volume column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\DER - Weight Regets"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - Weight Regets"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\DER - Weight Regets.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\DER - Weight Regets.Inputs[Derived Column Input].Columns[&quot;product_weight_g&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_weight_g&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_weight_g&quot;]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - ODS Products\DER - Weight Regets.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[Regets_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[Regets_Date]"
+                      name="Regets_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="122"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[RegetsPackadgeAndTask]"
+                      name="RegetsPackadgeAndTask"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + @[System::TaskName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)@[System::PackageName] + " &amp; " + @[System::TaskName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[RegetColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[RegetColumn]"
+                      name="RegetColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"Weight"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"Weight"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[RegetDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="377"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output].Columns[RegetDescription]"
+                      name="RegetDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)"The value" + #{Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns["product_weight_g"]} + " is not a valid amount"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)"The value" + ["product_weight_g"] + " is not a valid amount"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\DER - Weight Regets.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\LKP - English Category Name"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - English Category Name"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[ProductCategory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[ProductCategory]) [refTable]
+where [refTable].[product_category_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="product_category_name" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="product_category_name_english" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - ODS Products\267:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Products\LKP - English Category Name.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_STA]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\LKP - English Category Name.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\LKP - English Category Name.Inputs[Lookup Input].Columns[&quot;product_category_name&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="&quot;product_category_name&quot;"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_category_name&quot;]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">product_category_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - ODS Products\LKP - English Category Name.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Match Output].Columns[product_category_name_english]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Match Output].Columns[product_category_name_english]"
+                      name="product_category_name_english"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">product_category_name_english</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - ODS Products\LKP - English Category Name.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\LKP - English Category Name.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\OLE_DST - ADM Regets"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - ADM Regets"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Regets]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ADM]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ADM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].Columns[Regets_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Regets_Date"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[Regets_Date]"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[Regets_Date]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].Columns[RegetsPackadgeAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="122"
+                      cachedName="RegetsPackadgeAndTask"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetsPackadgeAndTask]"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetsPackadgeAndTask]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].Columns[RegetColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RegetColumn"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetColumn]"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetColumn]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].Columns[RegetDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RegetDescription"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetDescription]"
+                      lineageId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1].Columns[RegetDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[Regets_Date]"
+                      dataType="dbTimeStamp"
+                      name="Regets_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetsPackadgeAndTask]"
+                      dataType="wstr"
+                      length="210"
+                      name="RegetsPackadgeAndTask" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetColumn]"
+                      dataType="wstr"
+                      length="50"
+                      name="RegetColumn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input].ExternalColumns[RegetDescription]"
+                      dataType="wstr"
+                      length="374"
+                      name="RegetDescription" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\OLE_DST - STA Products"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - STA Products"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Products]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Products\OLE_DST - STA Products.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].Columns[product_id_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="product_id_R"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_id_R]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].Columns[product_category_name_english_R]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_category_name_english_R"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].ExternalColumns[product_category_name]"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_category_name_english_R]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].Columns[product_weight_g_R]"
+                      cachedDataType="numeric"
+                      cachedName="product_weight_g_R"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].ExternalColumns[product_weight_g]"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_weight_g_R]" />
+                    <inputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].Columns[product_volume_cm2_R]"
+                      cachedDataType="numeric"
+                      cachedName="product_volume_cm2_R"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].ExternalColumns[product_volume_cm2]"
+                      lineageId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output].Columns[product_volume_cm2_R]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].ExternalColumns[product_category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_category_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].ExternalColumns[product_weight_g]"
+                      dataType="numeric"
+                      name="product_weight_g"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input].ExternalColumns[product_volume_cm2]"
+                      dataType="numeric"
+                      name="product_volume_cm2"
+                      precision="38" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\OLE_DST - STA Products.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\OLE_DST - STA Products.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_DST - STA Products.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\OLE_DST - STA Products.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - ODS Products\OLE_SRC - STA Products"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC - STA Products"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Products]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Project_STA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_id&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_id&quot;]"
+                      name="&quot;product_id&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_category_name&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_category_name&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_category_name&quot;]"
+                      name="&quot;product_category_name&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_name_lenght&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_name_lenght&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_name_lenght&quot;]"
+                      name="&quot;product_name_lenght&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_description_lenght&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_description_lenght&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_description_lenght&quot;]"
+                      name="&quot;product_description_lenght&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_photos_qty&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_photos_qty&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_photos_qty&quot;]"
+                      name="&quot;product_photos_qty&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_weight_g&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_weight_g&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_weight_g&quot;]"
+                      name="&quot;product_weight_g&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_length_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_length_cm&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_length_cm&quot;]"
+                      name="&quot;product_length_cm&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_height_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_height_cm&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_height_cm&quot;]"
+                      name="&quot;product_height_cm&quot;"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_width_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_width_cm&quot;]"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].Columns[&quot;product_width_cm&quot;]"
+                      name="&quot;product_width_cm&quot;"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_id&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_category_name&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_category_name&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_name_lenght&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_name_lenght&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_description_lenght&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_description_lenght&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_photos_qty&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_photos_qty&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_weight_g&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_weight_g&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_length_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_length_cm&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_height_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_height_cm&quot;" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output].ExternalColumns[&quot;product_width_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="&quot;product_width_cm&quot;" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_id&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_id&quot;]"
+                      name="&quot;product_id&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_category_name&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_category_name&quot;]"
+                      name="&quot;product_category_name&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_name_lenght&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_name_lenght&quot;]"
+                      name="&quot;product_name_lenght&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_description_lenght&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_description_lenght&quot;]"
+                      name="&quot;product_description_lenght&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_photos_qty&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_photos_qty&quot;]"
+                      name="&quot;product_photos_qty&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_weight_g&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_weight_g&quot;]"
+                      name="&quot;product_weight_g&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_length_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_length_cm&quot;]"
+                      name="&quot;product_length_cm&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_height_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_height_cm&quot;]"
+                      name="&quot;product_height_cm&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_width_cm&quot;]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[&quot;product_width_cm&quot;]"
+                      name="&quot;product_width_cm&quot;" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - ODS Products.Paths[Data Conversion Error Output]"
+              endId="Package\DFT - ODS Products\DER - Weight Regets.Inputs[Derived Column Input]"
+              name="Data Conversion Error Output"
+              startId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Data Conversion Error Output1]"
+              endId="Package\DFT - ODS Products\DER - Number Regets.Inputs[Derived Column Input]"
+              name="Data Conversion Error Output"
+              startId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Data Conversion Output]"
+              endId="Package\DFT - ODS Products\DER - Volume column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Data Conversion Output1]"
+              endId="Package\DFT - ODS Products\OLE_DST - STA Products.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - ODS Products\DCNV - Column resize.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Data Conversion Output2]"
+              endId="Package\DFT - ODS Products\DCNV - Weight to Numeric.Inputs[Data Conversion Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Derived Column Output]"
+              endId="Package\DFT - ODS Products\LKP - English Category Name.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - ODS Products\DER - Volume column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Derived Column Output1]"
+              endId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 3]"
+              name="Derived Column Output"
+              startId="Package\DFT - ODS Products\DER - Number Regets.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Derived Column Output2]"
+              endId="Package\DFT - ODS Products\ALL - Regets.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT - ODS Products\DER - Weight Regets.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Lookup Match Output]"
+              endId="Package\DFT - ODS Products\DCNV - Column resize.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT - ODS Products\LKP - English Category Name.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[OLE DB Source Output]"
+              endId="Package\DFT - ODS Products\DCNV - Numbers to Numeric.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - ODS Products\OLE_SRC - STA Products.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT - ODS Products.Paths[Union All Output 1]"
+              endId="Package\DFT - ODS Products\OLE_DST - ADM Regets.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\DFT - ODS Products\ALL - Regets.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate ODS Products"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E60E98EF-1A56-455A-884D-CAD8485542F2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate ODS Products"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{593C07B1-802A-4D9A-9CB9-92598587E342}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.Products" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD154D03-D24F-45C3-95AE-6D7176216AAC}"
+      DTS:From="Package\SQL - Truncate ODS Products"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - ODS Products" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Products"
+          TopLeft="82.4999989941717,133.210525511952" />
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\SQL - Truncate ODS Products"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="171.249999497086,102.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.5438588452857"
+              Start="0,0"
+              End="0,23.0438588452857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0438588452857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - ODS Products">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="197.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Products\OLE_DST - ADM Regets"
+          TopLeft="829.708300951249,185.614033540145" />
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\DFT - ODS Products\DCNV - Column resize"
+          TopLeft="136.874994328246,458.964909583716" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Products\DER - Number Regets"
+          TopLeft="414.374981475995,149.859648611958" />
+        <NodeLayout
+          Size="221.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Products\LKP - English Category Name"
+          TopLeft="114.374994887039,382.428567493097" />
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Products\DER - Weight Regets"
+          TopLeft="420.624981196598,216.929823306817" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Products\DER - Volume column"
+          TopLeft="124.999994412065,306.719295368328" />
+        <NodeLayout
+          Size="206.666666666667,42.6666666666667"
+          Id="Package\DFT - ODS Products\DCNV - Weight to Numeric"
+          TopLeft="110.624995054677,221.0175414256" />
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Lookup Match Output]"
+          TopLeft="227.624994607642,425.095234159763">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.8696754239523"
+              Start="0,0"
+              End="0,26.3696754239523">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3696754239523" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,7.38015021197615,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Derived Column Output]"
+          TopLeft="221.354161316219,349.385962034995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.0426054581019"
+              Start="0,0"
+              End="0,25.5426054581019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5426054581019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Data Conversion Output]"
+          TopLeft="215.812494733371,263.684208092267">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.035087276061"
+              Start="0,0"
+              End="0,35.535087276061">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.535087276061" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Data Conversion Error Output]"
+          TopLeft="317.291661721344,240.307015699542">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.333319475254,0"
+              Start="0,0"
+              End="95.8333194752543,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95.8333194752543,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-18.1697269811228,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="202.666666666667,42.6666666666667"
+          Id="Package\DFT - ODS Products\OLE_DST - STA Products"
+          TopLeft="125.708327773338,533.473680724728" />
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Data Conversion Output1]"
+          TopLeft="228.624994384125,501.631576250383">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.8421044743455"
+              Start="0,0"
+              End="0,24.3421044743455">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3421044743455" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package\DFT - ODS Products\OLE_SRC - STA Products"
+          TopLeft="128.124994272366,75.5263153262031" />
+        <NodeLayout
+          Size="217.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Products\DCNV - Numbers to Numeric"
+          TopLeft="104.374995334074,153.947366730741" />
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Data Conversion Error Output1]"
+          TopLeft="321.708328667407,173.236841004683">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.6666528085877,0"
+              Start="0,0"
+              End="85.1666528085877,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="85.1666528085877,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.5030603144561,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[OLE DB Source Output]"
+          TopLeft="230.124994272366,118.19298199287">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.0833322716256,35.7543847378713"
+              Start="0,0"
+              End="-17.0833322716256,28.2543847378713">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8771923689356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8771923689356"
+                    Point2="0,17.8771923689356"
+                    Point3="-4,17.8771923689356" />
+                  <mssgle:LineSegment
+                    End="-13.0833322716256,17.8771923689356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.0833322716256,17.8771923689356"
+                    Point2="-17.0833322716256,17.8771923689356"
+                    Point3="-17.0833322716256,21.8771923689356" />
+                  <mssgle:LineSegment
+                    End="-17.0833322716256,28.2543847378713" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Data Conversion Output2]"
+          TopLeft="213.499995194376,196.614033397408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.4035080281923"
+              Start="0,0"
+              End="0,16.9035080281923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9035080281923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\DFT - ODS Products\ALL - Regets"
+          TopLeft="650.208304266757,187.982457575238" />
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Derived Column Output1]"
+          TopLeft="599.708314809328,171.192981945291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.4999894574285,38.1228089632798"
+              Start="0,0"
+              End="42.9999894574285,38.1228089632798">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.2499947287142,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.2499947287142,0"
+                    Point2="25.2499947287142,0"
+                    Point3="25.2499947287142,4" />
+                  <mssgle:LineSegment
+                    End="25.2499947287142,34.1228089632798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.2499947287142,34.1228089632798"
+                    Point2="25.2499947287142,38.1228089632798"
+                    Point3="29.2499947287142,38.1228089632798" />
+                  <mssgle:LineSegment
+                    End="42.9999894574285,38.1228089632798" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Derived Column Output2]"
+          TopLeft="601.958314529931,238.26315664015">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48.2499897368255,-23.1695879538015"
+              Start="0,0"
+              End="40.7499897368255,-23.1695879538015">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.9036085225015,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.9036085225015,0"
+                    Point2="27.9036085225015,0"
+                    Point3="27.9036085225015,-4" />
+                  <mssgle:LineSegment
+                    End="27.9036085225015,-19.1695879538015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.9036085225015,-19.1695879538015"
+                    Point2="27.9036085225015,-23.1695879538015"
+                    Point3="31.9036085225015,-23.1695879538015" />
+                  <mssgle:LineSegment
+                    End="40.7499897368255,-23.1695879538015" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - ODS Products.Paths[Union All Output 1]"
+          TopLeft="791.54163760009,208.131578891025">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.1666633511588,0"
+              Start="0,0"
+              End="30.6666633511588,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="30.6666633511588,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Products\OLE_DST - ADM Regets">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Products\LKP - English Category Name">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[ProductCategory]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Products\OLE_DST - STA Products">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - ODS Products\OLE_SRC - STA Products">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
